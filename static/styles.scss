@@ -1,0 +1,51 @@
+h1, h3{
+    color: black;
+    text-align: center;
+     
+}
+
+#body {
+  background-image: url('books.jpg');
+  background-color: gray;
+  background-blend-mode: screen;
+}
+
+h3 {
+	font-style: italic;
+}
+
+p {
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	background-color: #100758FF;
+
+
+
+	p,a {
+		font-color: black;
+		font-family: sans-serif;
+		font-size: 140%;
+		line-height: 0px;
+		vertical-align: top;
+	}
+}
+
+.logged_out {
+	h1 {
+		font-size: 700%;
+		padding: 20%;
+		padding-bottom: 0%
+	}
+	h3 {
+		padding-bottom: 30%
+	}
+}
