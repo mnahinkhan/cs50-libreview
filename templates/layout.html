@@ -6,7 +6,7 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-        
+       {#  <link rel="shortcut icon" type="image/png" href="favicon.png"> #}
     </head>
     <body>
     	<header>
@@ -29,7 +29,11 @@
             </div>
         </header>
         <div id="body">
-        <div id="Headings" class={% block web_state %}{% endblock %}>
+        <div id="Headings" class={% if logged_in %}
+			            "logged_in"
+			        {% else %}
+			            "logged_out"
+			        {% endif %}>
         <h1>
         	{% block title %}{% endblock %}
         </h1>
