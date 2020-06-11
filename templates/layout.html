@@ -18,7 +18,10 @@
 
             <div id="header_right">
                 <p>
-                    <a href="{{ url_for('register')}}">Register</a>
+                    {% if logged_in %}
+                    {% else %}
+                        <a href="{{ url_for('register')}}">Register</a>
+                    {% endif %}
                     &emsp;
                     {% if logged_in %}
 			            <a href="{{ url_for('log_out')}}">Logout</a>
@@ -29,20 +32,18 @@
             </div>
         </header>
         <div id="body">
-        <div id="Headings" class={% if logged_in %}
-			            "logged_in"
-			        {% else %}
-			            "logged_out"
-			        {% endif %}>
-        <h1>
-        	{% block title %}{% endblock %}
-        </h1>
-        <h3>
-        	{% block subtitle %}{% endblock %}
-        </h3>
-    	</div>
-        {% block body %}
-        {% endblock %}
-    </div>
+            <div id="Headings" class={% if logged_in %} "logged_in" {% else %} "logged_out" {% endif %}>
+                <h1>
+                    {% block title %}{% endblock %}
+                </h1>
+                <h3>
+                    {% block subtitle %}{% endblock %}
+                </h3>
+            </div>
+
+            {% block body %}
+            {% endblock %}
+
+        </div>
     </body>
 </html>

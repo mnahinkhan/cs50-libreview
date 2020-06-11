@@ -13,13 +13,31 @@ h3 {
   font-style: italic;
 }
 
+.col p {
+  text-align: right;
+}
+
 p {
   font-family: sans-serif;
   font-size: 20px;
 }
 
 .row {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+#error_message {
+  padding-bottom: 0px;
+}
+#error_message p {
+  color: red;
+  font-style: italic;
+  padding-bottom: 0px;
+}
+
+form .row p {
+  padding-top: 15px;
+  padding-right: 10px;
 }
 
 header {

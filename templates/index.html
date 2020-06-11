@@ -19,11 +19,103 @@ Home
 
 {% block body %}
 <div class="container">
-    <div class="row justify-content-center">
-        <a href="{{ url_for('log_in')}}" class="btn btn-primary" role="button">Login</a>
-    </div>
-    <div class="row justify-content-center">
-        <a href="{{ url_for('register')}}" class="btn btn-primary" role="button">Register</a>
-    </div>
+    {% if login_click %}
+        <div class="row justify-content-center" >
+            <h4>Welcome back!</h4>
+        </div>
+        <form action="{{ url_for('log_in') }}" method="post">
+
+        {%  if error_msg %}
+                <div class="row justify-content-center align-items-center no-gutters">
+                    <div id="error_message">
+                        <p> {{ error_msg }}</p>
+                    </div>
+                </div>
+            {%  endif %}
+
+
+            <div class="row justify-content-center align-items-center no-gutters">
+                <div class="col"><p>Username:</p></div>
+                <div class="col"><input type="text" name="username" placeholder="Enter your username..."
+                                        value="{{ username }}"></div>
+            </div>
+
+            <div class="row justify-content-center align-items-center no-gutters">
+                <div class="col"><p>Password:</p></div>
+                <div class="col"><input type="password" name="password" placeholder="Enter your password..."
+                                        value="{{ password }}"></div>
+
+            </div>
+
+            <div class="row justify-content-center">
+                <button class="btn btn-primary">Log in</button>
+            </div>
+
+        </form>
+    {% elif register_click %}
+        <div class="row justify-content-center" >
+            <h4>Welcome!</h4>
+        </div>
+
+
+        <form action="{{ url_for('register') }}" method="post">
+
+            {%  if error_msg %}
+                <div class="row justify-content-center align-items-center no-gutters">
+                    <div id="error_message">
+                        <p> {{ error_msg }}</p>
+                    </div>
+                </div>
+            {%  endif %}
+
+            <div class="row justify-content-center align-items-center no-gutters">
+                <div class="col">
+                <p>Name:</p>
+                </div>
+            <div class="col">
+                <input type="text" name="name" placeholder="Enter your name...", value="{{ name }}">
+        </div>
+            </div>
+            <div class="row justify-content-center align-items-center no-gutters">
+                <div class="col"><p>Username:</p></div>
+                <div class="col"><input type="text" name="username" placeholder="Enter your username..." value="{{ username }}"></div>
+            </div>
+
+            <div class="row justify-content-center align-items-center no-gutters">
+                <div class="col"><p>Password:</p></div>
+                <div class="col"><input type="password" name="password1" placeholder="Enter your password..."></div>
+
+            </div>
+
+            <div class="row justify-content-center align-items-center no-gutters">
+                <div class="col"><p>Confirm Password:</p></div>
+                <div class="col"><input type="password" name="password2" placeholder="Confirm your password..."></div>
+
+            </div>
+
+            <div class="row justify-content-center">
+                <button class="btn btn-primary">Register</button>
+            </div>
+
+        </form>
+     {% elif register_success %}
+        <div class="row justify-content-center">
+            <p>Thank you for registering! Please log in through our login page now!</p>
+        </div>
+        <div class="row justify-content-center">
+            <a href="{{ url_for('log_in')}}" class="btn btn-primary" role="button">Login</a>
+        </div>
+    {% elif logged_in %}
+    {% else %}
+        <div class="row justify-content-center">
+            <a href="{{ url_for('log_in')}}" class="btn btn-primary" role="button">Login</a>
+        </div>
+        <div class="row justify-content-center">
+            <a href="{{ url_for('register')}}" class="btn btn-primary" role="button">Register</a>
+        </div>
+
+
+    {% endif %}
+    
 </div>
 {% endblock %}
