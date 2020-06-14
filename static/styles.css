@@ -43,10 +43,7 @@ form .row p {
 header {
   display: flex;
   justify-content: space-between;
-  padding-top: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
+  padding: 30px 10px 10px;
   background-color: #100758FF;
 }
 header p, header a {
@@ -59,11 +56,52 @@ header p, header a {
 
 .logged_out h1 {
   font-size: 700%;
-  padding: 20%;
-  padding-bottom: 20px;
+  padding: 20% 20% 20px;
 }
 .logged_out h3 {
   padding-bottom: 30px;
+}
+
+.container.logged_in {
+  margin-top: 50px;
+}
+
+.book_listing_overall {
+  margin-top: 100px;
+}
+.book_listing_overall h4 {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+.book_listing_overall p.result_num {
+  font-size: 14px;
+}
+
+.book_listing_individual {
+  margin-top: 20px;
+  margin-bottom: 7px;
+}
+.book_listing_individual p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.book_listing_individual p.book_title {
+  font-weight: bold;
+  font-size: 20px;
+}
+.book_listing_individual p.book_title a {
+  color: #8e3228;
+}
+.book_listing_individual p.isbn {
+  font-size: 10pt;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-indent: 20px;
+}
+
+.welcome_message p {
+  text-align: center;
 }
 
 /*# sourceMappingURL=styles.css.map */

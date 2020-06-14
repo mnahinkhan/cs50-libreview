@@ -23,11 +23,14 @@ db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
 def index(login_click=False, register_click=False, register_success=False, is_error=False,
-          error_msg="", username="", name="", password=""):
+          error_msg="", username="", name="", password="", books=None):
 
+    if books is None:
+        books = []
     return render_template("index.html", logged_in=("logged_in" in session), login_click=login_click,
                            register_click=register_click, register_success=register_success, is_error=is_error,
-                           error_msg=error_msg, username=username, name=name, password=password)
+                           error_msg=error_msg, username=username, name=name, password=password, books=books,
+                           real_name=session.get("name", ""))
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -59,9 +62,11 @@ def log_in():
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
-        if db.execute("SELECT * FROM users WHERE username = :username AND password = :password",
-                      {"username": username, "password": password}).fetchone() is not None:
+        user_search = db.execute("SELECT * FROM users WHERE username = :username AND password = :password",
+                      {"username": username, "password": password}).fetchone()
+        if user_search is not None:
             session["logged_in"] = True
+            session["name"] = user_search["name"]
             return index()
         else:
             return index(login_click=True, is_error=True, error_msg="Username or password incorrect!",
@@ -74,3 +79,11 @@ def log_in():
 def log_out():
     del session['logged_in']
     return index()
+
+
+@app.route("/search/")
+def search():
+    book_query = request.args.get('book_query')
+    books = db.execute("SELECT * FROM books WHERE LOWER(title) LIKE :book_query OR LOWER(author) LIKE :book_query" +
+                       " OR isbn LIKE :book_query", {"book_query": f"%{book_query.lower()}%"}).fetchall()
+    return index(books=books)
