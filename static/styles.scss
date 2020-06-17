@@ -16,7 +16,7 @@ body {
 //   background-blend-mode: screen;
 // }
 
-h3 {
+h3.web_subtitle {
 	font-style: italic;
 }
 
@@ -92,7 +92,7 @@ header {
 	}
 }
 
-.container.logged_in {
+.container.search_page {
 	margin-top: 50px;
 }
 
@@ -106,6 +106,13 @@ header {
 
 	p.result_num {
 		font-size: 14px;
+	}
+}
+
+.book_page {
+	padding-top: 30px;
+	h2 {
+		text-align: center;
 	}
 }
 
@@ -136,5 +143,44 @@ header {
 .welcome_message {
 	p {
 		text-align: center;
+	}
+}
+
+.quick_facts {
+	padding-top: 30px;
+	p {
+		font-size: 16px !important;
+		padding: 1px;
+		margin: 0px;
+		font-weight: lighter;
+	}
+
+}
+
+.review_area {
+	p {
+		font-size: 14px;
+	}
+}
+.reviews {
+	padding-top: 30px;
+}
+
+.container {
+	padding-top: 30px;
+	p,label {
+		text-indent: 20px;
+		font-size: 14px;
+	}
+}
+
+textarea {
+	resize: none;
+	margin-left: 20px;
+}
+
+.text-review {
+	label {
+		align: center;
 	}
 }

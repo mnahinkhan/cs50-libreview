@@ -9,7 +9,7 @@ body {
   background-blend-mode: screen;
 }
 
-h3 {
+h3.web_subtitle {
   font-style: italic;
 }
 
@@ -62,7 +62,7 @@ header p, header a {
   padding-bottom: 30px;
 }
 
-.container.logged_in {
+.container.search_page {
   margin-top: 50px;
 }
 
@@ -76,6 +76,13 @@ header p, header a {
 }
 .book_listing_overall p.result_num {
   font-size: 14px;
+}
+
+.book_page {
+  padding-top: 30px;
+}
+.book_page h2 {
+  text-align: center;
 }
 
 .book_listing_individual {
@@ -102,6 +109,41 @@ header p, header a {
 
 .welcome_message p {
   text-align: center;
+}
+
+.quick_facts {
+  padding-top: 30px;
+}
+.quick_facts p {
+  font-size: 16px !important;
+  padding: 1px;
+  margin: 0px;
+  font-weight: lighter;
+}
+
+.review_area p {
+  font-size: 14px;
+}
+
+.reviews {
+  padding-top: 30px;
+}
+
+.container {
+  padding-top: 30px;
+}
+.container p, .container label {
+  text-indent: 20px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  margin-left: 20px;
+}
+
+.text-review label {
+  align: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
