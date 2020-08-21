@@ -1,4 +1,4 @@
-# cs50 LibReview - a book reviews website
+# LibReview - a book reviews website
 
 For YouTube intro, see: https://youtu.be/ucokEiVUwyI
 
