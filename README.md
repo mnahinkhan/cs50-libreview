@@ -1,4 +1,6 @@
-# Project 1
+# cs50 LibReview - a book reviews website
+
+For YouTube intro, see: https://youtu.be/ucokEiVUwyI
 
 Web Programming with Python and JavaScript (CS50 Project work)
 
